@@ -1,5 +1,6 @@
 import random
 
+
 def create_deck():
     """Creates a deck of 52 cards"""
     suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
@@ -7,6 +8,7 @@ def create_deck():
     deck = [{'suit': suit, 'value': value} for suit in suits for value in values]
     random.shuffle(deck)
     return deck
+
 
 def card_value(card):
     """Returns the value of a single card"""
@@ -16,6 +18,7 @@ def card_value(card):
         return 11
     else:
         return int(card['value'])
+
 
 def total_hand(hand):
     """Calculates the total value of a hand"""
@@ -27,12 +30,14 @@ def total_hand(hand):
         num_aces -= 1
     return total
 
+
 def display_hand(hand, player):
     """Displays the hand of a player"""
     print(f"{player}'s hand:")
     for card in hand:
         print(f"{card['value']} of {card['suit']}")
     print("Total:", total_hand(hand))
+
 
 def play_blackjack():
     deck = create_deck()
@@ -65,6 +70,7 @@ def play_blackjack():
         print("Dealer wins!")
     else:
         print("It's a tie!")
+
 
 if __name__ == "__main__":
     play_blackjack()
